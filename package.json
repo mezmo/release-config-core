@@ -1,0 +1,70 @@
+{
+  "name": "@mezmoinc/release-config-core",
+  "version": "0.0.0",
+  "description": "Baseline semantic release configuration",
+  "homepage": "https://github.com/mezmo/release-config-core#readme",
+  "bugs": {
+    "url": "https://github.com/mezmo/release-config-core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mezmo/release-config-core.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "Eric Satterwhite <eric.satterwhite@mezmo.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "release": "npx semantic-release",
+    "release:dry": "npm run release -- --no-ci --dry-run --branches=${BRANCH_NAME:-main}",
+    "commitlint": "true",
+    "lint": "eslint ",
+    "lint:fix": "npm run lint -- --fix",
+    "prelint:ci": "rm -f .eslint.json",
+    "lint:ci": "eslint -f json-relative > .eslint.json || true",
+    "tap": "tap",
+    "pretest": "rm -rf .tap*",
+    "test": "./scripts/test-ci.sh"
+  },
+  "tap": {
+    "browser": false,
+    "show-full-coverage": true,
+    "statements": 100,
+    "lines": 100,
+    "branches": 100,
+    "functions": 100,
+    "coverage-report": [
+      "text",
+      "text-summary",
+      "lcov",
+      "json",
+      "json-summary",
+      "html"
+    ],
+    "plugin": [
+      "!@tapjs/typescript"
+    ],
+    "output-file": ".tap-out",
+    "files": [
+      "test/unit",
+      "test/integration"
+    ]
+  },
+  "dependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "handlebars": "^4.7.9"
+  },
+  "devDependencies": {
+    "eslint": "^10.2.1",
+    "eslint-config-logdna": "^8.0.1",
+    "eslint-formatter-json-relative": "^0.1.0",
+    "execa": "^9.6.1",
+    "semantic-release": "^25.0.3",
+    "tap": "^21.7.1"
+  }
+}

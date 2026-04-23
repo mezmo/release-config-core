@@ -1,0 +1,66 @@
+*{{#if scope}} **{{scope}}**:
+{{~/if}} {{#if subject}}
+  {{~subject}}
+{{~else}}
+  {{~header}}
+{{~/if}}
+
+{{~!-- commit link --}} {{#if @root.linkReferences~}}
+  [{{shortHash}}](
+  {{~#if @root.repository}}
+    {{~#if @root.host}}
+      {{~@root.host}}/
+    {{~/if}}
+    {{~#if @root.owner}}
+      {{~@root.owner}}/
+    {{~/if}}
+    {{~@root.repository}}
+  {{~else}}
+    {{~@root.repoUrl}}
+  {{~/if}}/
+  {{~@root.commit}}/{{hash}}) - {{committer.name}}
+{{~else}}
+  {{~shortHash}}
+{{~/if}}
+
+{{~!-- lifted from original convential-changelog-writer}}
+{{~!-- commit references --}}
+{{~!-- If issuesUrl is present, just render that--}}
+{{~!-- else generate a link for github issues --}}
+{{~#if references~}}
+  {{~#each references}} {{#if @root.linkReferences~}}
+    {{#if this.issuesUrl~}}
+      [{{this.prefix}}{{this.issue}}]({{this.issuesUrl}})
+    {{~else~}}
+      [
+      {{~#if this.owner}}
+        {{~this.owner}}/
+      {{~/if}}
+      {{~this.repository}}#{{this.issue}}](
+      {{~#if @root.repository}}
+        {{~#if @root.host}}
+          {{~@root.host}}/
+        {{~/if}}
+        {{~#if this.repository}}
+          {{~#if this.owner}}
+            {{~this.owner}}/
+          {{~/if}}
+          {{~this.repository}}
+        {{~else}}
+          {{~#if @root.owner}}
+            {{~@root.owner}}/
+          {{~/if}}
+            {{~@root.repository}}
+          {{~/if}}
+      {{~else}}
+        {{~@root.repoUrl}}
+      {{~/if}}/
+      {{~@root.issue}}/{{this.issue}})
+    {{~/if}}
+  {{~else}}
+    {{~#if this.owner}}
+      {{~this.owner}}/
+    {{~/if}}
+    {{~this.repository}}#{{this.issue}}
+  {{~/if}}{{/each}}
+{{~/if}}
