@@ -48,7 +48,14 @@ module.exports = {
   , ['@semantic-release/npm', {}]
   , ['@semantic-release/exec', {}]
   , ['@semantic-release/git', {
-      assets: ['package*.json', '*.md', 'Cargo.*', '!**/node_modules/**']
+      assets: [
+        'package*.json'
+      , '*.md'
+      , 'Cargo.*'
+      , '**/Cargo.*'
+      , '!**/node_modules/**'
+      , '!**/target/**'
+      ]
     , message: `release: ${year}-${month}-${day}, `
         + 'Version <%= nextRelease.version %> [skip ci]'
     }]
