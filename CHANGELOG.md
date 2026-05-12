@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.1.1](https://github.com/mezmo/release-config-core/compare/v1.1.0...v1.1.1) (2026-05-12)
+
+
+### Chores
+
+* **dep-dev**: update eslint requirement from ^10.2.1 to ^10.3.0 [2fffb71](https://github.com/mezmo/release-config-core/commit/2fffb710fc8dbd675a92af81e214dd95423016ae) - Eric Satterwhite
+
 # [1.1.0](https://github.com/mezmo/release-config-core/compare/v1.0.0...v1.1.0) (2026-04-24)
 
 
