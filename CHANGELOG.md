@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.1.2](https://github.com/mezmo/release-config-core/compare/v1.1.1...v1.1.2) (2026-05-12)
+
+
+### Chores
+
+* **dep-dev**: update tap requirement from ^21.7.1 to ^21.7.2 [773a29f](https://github.com/mezmo/release-config-core/commit/773a29f8f43d0b8303f0d80e24ec278e11010ea2) - Eric Satterwhite
+
 ## [1.1.1](https://github.com/mezmo/release-config-core/compare/v1.1.0...v1.1.1) (2026-05-12)
 
 
