@@ -40,10 +40,12 @@ test('release-config-logdna', async (t) => {
   t.same(config.releaseRules.sort(sortByType), [
     {breaking: true, release: 'major'}
   , {revert: true, release: 'patch'}
+  , {type: 'ci', release: false}
+  , {scope: 'ci', release: false}
+  , {scope: 'setup', release: false}
   , {type: 'chore', scope: 'dep-dev', release: false}
   , {type: 'chore', scope: 'deps-dev', release: false}
   , {type: 'build', release: 'patch'}
-  , {type: 'ci', release: 'patch'}
   , {type: 'chore', release: 'patch'}
   , {type: 'feat', release: 'minor'}
   , {type: 'refactor', release: 'patch'}
@@ -55,9 +57,7 @@ test('release-config-logdna', async (t) => {
   , {type: 'lib', release: 'patch'}
   , {type: 'src', release: 'patch'}
   , {type: 'perf', release: 'minor'}
-  , {type: 'pkg', scope: 'setup', release: false}
-  , {type: 'style', release: 'patch'}
-  , {type: 'svc', scope: 'setup', release: false}
+  , {type: 'style', release: false}
   ].sort(sortByType), 'expected default release rules')
 
   t.same(plugins, [
