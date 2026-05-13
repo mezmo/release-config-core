@@ -52,9 +52,10 @@ module.exports = {
         'package*.json'
       , '*.md'
       , 'Cargo.*'
-      , '**/Cargo.*'
+      , 'crates/*/Cargo.*'
       , '!**/node_modules/**'
       , '!**/target/**'
+      , '!**/.rustup/**'
       ]
     , message: `release: ${year}-${month}-${day}, `
         + 'Version <%= nextRelease.version %> [skip ci]'
