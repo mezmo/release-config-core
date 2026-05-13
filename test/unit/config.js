@@ -69,4 +69,22 @@ test('release-config-logdna', async (t) => {
   , '@semantic-release/git'
   , '@semantic-release/github'
   ], 'expected default plugins')
+
+  const [name, plugin_config] = config.plugins.find((plugin) => {
+    return plugin[0] === '@semantic-release/git'
+  })
+
+  t.same(name, '@semantic-release/git', 'git plugin found')
+  t.type(plugin_config.assets, Array, 'git pluging assets')
+
+  t.ok(plugin_config.assets.includes('package*.json'), 'git includes npm manifests')
+  t.ok(plugin_config.assets.includes('*.md'), 'git includes markdown files')
+  t.ok(plugin_config.assets.includes('Cargo.*'), 'git includes root Cargo manifests')
+  t.ok(plugin_config.assets.includes('crates/*/Cargo.*'), 'git includes Cargo manifests')
+  t.ok(plugin_config.assets.includes('!**/target/**'), 'git ignores target dirs')
+  t.ok(plugin_config.assets.includes('!**/.rustup/**'), 'git ignores .rustup dirs')
+  t.ok(
+    plugin_config.assets.includes('!**/node_modules/**')
+  , 'git ignores node_modules dir'
+  )
 }).catch(threw)
