@@ -60,7 +60,7 @@
     "handlebars": "^4.7.9"
   },
   "devDependencies": {
-    "eslint": "^10.3.0",
+    "eslint": "^10.5.0",
     "eslint-config-logdna": "^8.0.1",
     "eslint-formatter-json-relative": "^0.1.0",
     "execa": "^9.6.1",
