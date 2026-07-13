@@ -12,7 +12,7 @@ const month = String(now.getMonth() + 1).padStart(2, '0')
 module.exports = {
   npmPublish: false
 , parserOpts: {
-    noteKeywords: ['BREAKING CHANGES', 'BREAKING CHANGE', 'BREAKING']
+    noteKeywords: ['BREAKING CHANGES', 'BREAKING CHANGE', 'BREAKING-CHANGE']
   , headerPattern: constants.COMMIT_HEADER_REGEX
   , breakingHeaderPattern: constants.BREAKING_HEADER_REGEX
   , headerCorrespondence: ['type', 'scope', 'subject']
