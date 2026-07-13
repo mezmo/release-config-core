@@ -92,7 +92,7 @@ pipeline {
     stage('Release Test') {
       environment {
         GIT_BRANCH = "${CURRENT_BRANCH}"
-        BRANCH_NAME = "${CURRENT_BRANCH}-dry-run-${BUILD_NUMBER}"
+        BRANCH_NAME = "${CURRENT_BRANCH}"
         CHANGE_ID = ""
       }
 
@@ -104,17 +104,6 @@ pipeline {
       }
 
       steps {
-        checkout([
-          $class: 'GitSCM',
-          branches: scm.branches,
-          doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
-          extensions: scm.extensions + [
-            [$class: 'CloneOption', depth: 0, noTags: false, shallow: false],
-            [$class: 'PruneStaleBranch']
-          ],
-          userRemoteConfigs: scm.userRemoteConfigs
-        ])
-        sh 'git tag'
         sh 'npm install'
         sh "echo Running release dry run for ${BRANCH_NAME}"
         sh "git checkout -b ${BRANCH_NAME}"
@@ -123,7 +112,7 @@ pipeline {
            string(credentialsId: 'github-api-token', variable: 'GITHUB_TOKEN'),
            string(credentialsId: 'npm-publish-token', variable: 'NPM_TOKEN')
         ]) {
-          sh "npm run release:dry -- --repository-url=file://${WORKSPACE}"
+          sh "npm run release:dry "
         }
       }
     }

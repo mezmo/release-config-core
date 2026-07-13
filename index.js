@@ -13,6 +13,9 @@ module.exports = {
   npmPublish: false
 , parserOpts: {
     noteKeywords: ['BREAKING CHANGES', 'BREAKING CHANGE', 'BREAKING-CHANGE']
+  , notesPattern: (keywords) => {
+      return new RegExp(`(?:^|\\r?\\n)[\\s|*]*(${keywords}):[ \\t]+(.*)`)
+    }
   , headerPattern: constants.COMMIT_HEADER_REGEX
   , breakingHeaderPattern: constants.BREAKING_HEADER_REGEX
   , headerCorrespondence: ['type', 'scope', 'subject']
