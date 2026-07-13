@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.1.4](https://github.com/mezmo/release-config-core/compare/v1.1.3...v1.1.4) (2026-07-13)
+
+
+### Bug Fixes
+
+* replace bare BREAKING note keyword with BREAKING-CHANGE [f9c465d](https://github.com/mezmo/release-config-core/commit/f9c465d3a5b4f82e1be0e585cfd2024ee6c749a5) - Jacob Hull [#16](https://github.com/mezmo/release-config-core/issues/16)
+
 ## [1.1.3](https://github.com/mezmo/release-config-core/compare/v1.1.2...v1.1.3) (2026-05-14)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@mezmoinc/release-config-core",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Baseline semantic release configuration",
   "homepage": "https://github.com/mezmo/release-config-core#readme",
   "bugs": {
