@@ -16,6 +16,7 @@ test('release-config-logdna', async (t) => {
   t.same(config.npmPublish, false, 'npmPublish = false by default')
   t.matchOnlyStrict(config.parserOpts, {
     noteKeywords: ['BREAKING CHANGES', 'BREAKING CHANGE', 'BREAKING-CHANGE']
+  , notesPattern: Function
   , headerPattern: constants.COMMIT_HEADER_REGEX
   , breakingHeaderPattern: constants.BREAKING_HEADER_REGEX
   , headerCorrespondence: ['type', 'scope', 'subject']
