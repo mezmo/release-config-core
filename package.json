@@ -63,7 +63,7 @@
     "eslint": "^10.3.0",
     "eslint-config-logdna": "^8.0.1",
     "eslint-formatter-json-relative": "^0.1.0",
-    "execa": "^9.6.1",
+    "execa": "^10.0.0",
     "semantic-release": "^25.0.3",
     "tap": "^21.7.2"
   }
