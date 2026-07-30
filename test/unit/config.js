@@ -30,6 +30,7 @@ test('release-config-logdna', async (t) => {
     , 'INFRA-'
     , 'COM-'
     ]
+  , issuePrefixesCaseSensitive: true
   , changelogTitle: '## Changelog'
   , referenceActions: [
       'close', 'closes', 'closed', 'fix'

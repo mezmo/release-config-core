@@ -92,4 +92,42 @@ test('CommitTemplate', async (t) => {
     , 'expected commit output'
     )
   })
+
+  t.test('delimits multiple entries with newlines', async (t) => {
+    // Render two commits through the real writer, which invokes the commit
+    // partial from its main template. The entries must land on separate lines
+    // rather than concatenating onto one.
+    const {writeChangelogString} = await import('conventional-changelog-writer')
+    const config = require('../../../index.js')
+    function commit(scope, subject, hash) {
+      return {
+        type: 'feat'
+      , scope
+      , subject
+      , hash
+      , committer: {name: 'Jacob Hull'}
+      , references: []
+      , notes: []
+      , mentions: []
+      , revert: null
+      }
+    }
+    const commits = [
+      commit('package', 'first thing', '1111111aaaaaaa')
+    , commit('module', 'second thing', '2222222bbbbbbb')
+    ]
+
+    const changelog = await writeChangelogString(
+      commits
+    , {version: '1.0.0', linkReferences: false}
+    , config.writerOpts
+    )
+    const entries = changelog.split('\n').filter((line) => {
+      return line.startsWith('* ')
+    })
+
+    t.equal(entries.length, 2, 'each commit renders on its own line')
+    t.match(entries[0], /first thing/, 'first entry rendered')
+    t.match(entries[1], /second thing/, 'second entry rendered')
+  })
 }).catch(threw)
