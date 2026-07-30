@@ -1,5 +1,16 @@
 ## Changelog
 
+# [2.0.0](https://github.com/mezmo/release-config-core/compare/v1.1.4...v2.0.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* **config**:  make notes keywords case sensitive [97c1992](https://github.com/mezmo/release-config-core/commit/97c1992bcbcf3003f6612132341f63d2b498f42b) - Eric Satterwhite [#18](https://github.com/mezmo/release-config-core/issues/18)
+
+### **BREAKING CHANGES**
+
+* **config:** note keywords are case sensitive
+
 ## [1.1.4](https://github.com/mezmo/release-config-core/compare/v1.1.3...v1.1.4) (2026-07-13)
 
 
