@@ -20,6 +20,7 @@ module.exports = {
   , breakingHeaderPattern: constants.BREAKING_HEADER_REGEX
   , headerCorrespondence: ['type', 'scope', 'subject']
   , issuePrefixes: constants.ISSUE_PREFIXES
+  , issuePrefixesCaseSensitive: true
   , changelogTitle: '## Changelog'
   , referenceActions: [
       // Common Github trailers

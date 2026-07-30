@@ -63,4 +63,7 @@
     {{~/if}}
     {{~this.repository}}#{{this.issue}}
   {{~/if}}{{/each}}
-{{~/if}}
+{{~/if}}{{!-- keep the trailing blank line: the writer strips one newline when
+  it invokes this partial on a standalone line, so entries need the extra one to
+  stay on separate lines. Covered by test/unit/template/commit.js --}}
+
