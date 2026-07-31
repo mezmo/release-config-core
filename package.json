@@ -62,7 +62,7 @@
   "devDependencies": {
     "conventional-changelog-writer": "^8.4.0",
     "conventional-commits-parser": "^6.4.0",
-    "eslint": "^10.3.0",
+    "eslint": "^10.8.0",
     "eslint-config-logdna": "^8.0.1",
     "eslint-formatter-json-relative": "^0.1.0",
     "execa": "^9.6.1",
