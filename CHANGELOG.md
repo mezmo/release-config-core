@@ -1,5 +1,12 @@
 ## Changelog
 
+## [2.0.1](https://github.com/mezmo/release-config-core/compare/v2.0.0...v2.0.1) (2026-07-31)
+
+
+### Bug Fixes
+
+* **changelog**: one entry per line, stop mis-parsing issue refs [ea8d4d6](https://github.com/mezmo/release-config-core/commit/ea8d4d6673e985d359841f99631d6792baf331d2) - Jacob Hull
+
 # [2.0.0](https://github.com/mezmo/release-config-core/compare/v1.1.4...v2.0.0) (2026-07-30)
 
 
